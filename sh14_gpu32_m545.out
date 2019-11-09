@@ -1,0 +1,66 @@
+Given config: Config: -----
+use_random_affine: False
+batchnorm_track: True
+pre_scale_factor: 0.5
+jitter_saturation: 0.1
+eval_mode: hung
+out_dir: ./out/545
+flip_p: 0.5
+incl_animal_things: False
+use_random_scale: False
+use_coarse_labels: True
+dataset: Potsdam
+using_IR: True
+include_rgb: True
+num_epochs: 1
+lr_schedule: []
+use_uncollapsed_loss: True
+half_T_side_sparse_min: 0
+lamb_B: 1.5
+lamb_A: 1.0
+output_k_B: 3
+save_freq: 5
+coco_164k_curated_version: -1
+output_k_A: 24
+lr_mult: 0.1
+head_B_first: False
+aff_max_scale: 1.2
+dataloader_batch_sz: 5
+in_channels: 4
+lr: 1e-05
+aff_min_scale: 0.8
+aff_min_shear: -10.0
+gt_k: 3
+opt: Adam
+jitter_brightness: 0.1
+output_k: 3
+num_dataloaders: 1
+half_T_side_sparse_max: 0
+aff_min_rot: -30.0
+include_things_labels: False
+jitter_hue: 0.1
+num_sub_heads: 1
+test_code: False
+half_T_side_dense: 10
+fine_to_coarse_dict: /users/xuji/iid/iid_private/code/datasets/segmentation/util/out/fine_to_coarse_dict.pickle
+input_sz: 200
+dataset_root: data/POTSDAM
+arch: SegmentationNet10aTwoHead
+restart: False
+batch_sz: 5
+pre_scale_all: False
+scale_min: 0.6
+out_root: ./out
+model_ind: 545
+aff_max_shear: 10.0
+scale_max: 1.4
+use_doersch_datasets: False
+mask_input: False
+mode: IID
+aff_max_rot: 30.0
+jitter_contrast: 0.1
+no_sobel: True
+----------
+Creating paired dataloader 0 out of 1 time 2019-11-08 16:08:08.922214
+Length of paired datasets vector 1
+Number of batches per epoch: 1710
