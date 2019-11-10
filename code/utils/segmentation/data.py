@@ -7,6 +7,7 @@ from torch.utils.data import ConcatDataset
 from code.datasets.segmentation import DoerschDataset
 from code.datasets.segmentation import cocostuff
 from code.datasets.segmentation import potsdam
+from code.datasets.segmentation import despegar
 
 
 def segmentation_create_dataloaders(config):
@@ -40,8 +41,10 @@ def segmentation_create_dataloaders(config):
                                  "labelled_test"]
       config.mapping_assignment_partitions = ["labelled_train", "labelled_test"]
       config.mapping_test_partitions = ["labelled_train", "labelled_test"]
-    else:
-      raise NotImplementedError
+    elif config.dataset == "Despegar":
+      config.train_partitions = ["all"]
+      config.mapping_assignment_partitions = ["all"]
+      config.mapping_test_partitions = ["all"]
 
   if "Coco" in config.dataset:
     dataloaders, mapping_assignment_dataloader, mapping_test_dataloader = \
@@ -49,8 +52,9 @@ def segmentation_create_dataloaders(config):
   elif config.dataset == "Potsdam":
     dataloaders, mapping_assignment_dataloader, mapping_test_dataloader = \
       make_Potsdam_dataloaders(config)
-  else:
-    raise NotImplementedError
+  elif config.dataset == "Despegar":
+    dataloaders, mapping_assignment_dataloader, mapping_test_dataloader = \
+       make_Despegar_dataloaders(config)
 
   return dataloaders, mapping_assignment_dataloader, mapping_test_dataloader
 
@@ -82,6 +86,18 @@ def make_Potsdam_dataloaders(config):
 
   return dataloaders, mapping_assignment_dataloader, mapping_test_dataloader
 
+def make_Despegar_dataloaders(config):
+  dataloaders = _create_dataloaders(config, despegar.__dict__[config.dataset])
+
+  mapping_assignment_dataloader = \
+    _create_mapping_loader(config, despegar.__dict__[config.dataset],
+                           partitions=config.mapping_assignment_partitions)
+
+  mapping_test_dataloader = \
+    _create_mapping_loader(config, despegar.__dict__[config.dataset],
+                           partitions=config.mapping_test_partitions)
+
+  return dataloaders, mapping_assignment_dataloader, mapping_test_dataloader
 
 def _create_dataloaders(config, dataset_class):
   # unlike in clustering, each dataloader here returns pairs of images - we
