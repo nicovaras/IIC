@@ -84,7 +84,7 @@ pyudev==0.15
 #pyvlfeat==0.1.1a3
 PyWavelets==0.5.2
 #pyxattr==0.5.1
-PyYAML==3.10
+PyYAML==5.4
 pyzmq==14.3.1
 qtconsole==4.3.1
 repoze.lru==0.4
