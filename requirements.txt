@@ -72,7 +72,7 @@ ptyprocess==0.5.2
 pycocotools==2.0
 pycrypto==2.6.1
 #pycurl==7.19.0
-Pygments==1.4
+Pygments==2.7.4
 pygobject
 #pygpgme==0.3
 #pyliblzma==0.5.3
