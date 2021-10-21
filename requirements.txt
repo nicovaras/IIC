@@ -1,6 +1,6 @@
 absl-py==0.2.2
 astor==0.6.2
-Babel==0.9.6
+Babel==2.9.1
 backports-abc==0.5
 backports.functools-lru-cache==1.5
 backports.ssl-match-hostname==3.4.0.2
