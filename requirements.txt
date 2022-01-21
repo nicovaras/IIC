@@ -27,7 +27,7 @@ hdf5storage==0.1.14
 imageio==2.2.0
 iniparse==0.4
 ipykernel==4.6.1
-ipython==3.2.1
+ipython==7.16.3
 ipython-genutils==0.2.0
 ipywidgets==6.0.0
 #javapackages
